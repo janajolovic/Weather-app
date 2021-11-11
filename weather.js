@@ -3,13 +3,14 @@ const img = document.querySelector(".icon");
 const tem = document.querySelector(".temp");
 const desc = document.querySelector(".description");
 const hum = document.querySelector(".humidity");
+const btn = document.querySelector(".btn");
+const search_bar = document.querySelector(".search-bar");
 
 weather = {
     "API_key": "b8bf7f69e6001c16ade11d8120a02f4d",
     fetchWeather: function (city) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.API_key}`)
             .then(response => response.json())
-            // .then(data => console.log(data))
             .then(data => this.displayWeather(data))
     },
     displayWeather: function(data) {
@@ -21,9 +22,22 @@ weather = {
         tem.innerText = `${Math.round(temp)}°C`;
         desc.innerText = description;
         hum.innerText = humidity + "%";
+        document.querySelector(".weather").classList.remove("loading");
+        document.body.style.backgroundImage = `url("https://source.unsplash.com/1600x900/?${name}")`;
+    },
+    search: function() {
+        this.fetchWeather(search_bar.value)
     }
 }
 
+btn.addEventListener("click", () => {
+    weather.search();
+})
 
+search_bar.addEventListener("keyup", (e) => {
+    if (e.key == "Enter") {
+        weather.search();
+    } 
+})
 
 weather.fetchWeather("Novi Pazar")

@@ -61,6 +61,33 @@ input.search-bar {
     width: calc(100% - 50px);
 }
 
-/* h1.temp {
-    margin: 0;
-} */
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.temp {
+    margin: 10px 0px 5px 0px;
+}
+
+.description {
+    margin-left: 5px;
+}
+
+.icon {
+    margin-left: -5px;
+}
+
+.weather.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+}
+
+.weather.loading:after {
+    visibility: visible;
+    color: white;
+    content: "Loading...";
+    position: absolute;
+    top: 0;
+}
