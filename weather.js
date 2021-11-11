@@ -1,6 +1,6 @@
 const city = document.querySelector(".city");
 const img = document.querySelector(".icon");
-const temp = document.querySelector(".temp");
+const tem = document.querySelector(".temp");
 const desc = document.querySelector(".description");
 const hum = document.querySelector(".humidity");
 
@@ -16,7 +16,14 @@ weather = {
         const { name } = data;
         const { icon, description } = data.weather[0];
         const { temp, humidity } = data.main;
-        console.log(name, icon, description, temp, humidity);
+        city.innerText = `Weather in ${name}`;
+        img.src = `https://openweathermap.org/img/wn/${icon}.png`
+        tem.innerText = `${Math.round(temp)}°C`;
+        desc.innerText = description;
+        hum.innerText = humidity + "%";
     }
 }
 
+
+
+weather.fetchWeather("Novi Pazar")
