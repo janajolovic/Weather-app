@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    background-image: url("https://source.unsplash.com/1600x900/?landscape");
+}
+
+.card {
+    padding: 2em;
+    margin: 1em;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 30px;
+    background-color: #000000d0;
+    color: white;
+}
